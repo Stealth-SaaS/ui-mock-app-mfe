@@ -8,20 +8,20 @@ import "./index.scss";
 
 const App = () => {
   const [config, setConfig] = useState();
-  console.log(config);
-  const fetchPost = async () => {
-    await getDocs(collection(db, "todos")).then((querySnapshot) => {
+
+  const fetchConfig = async () => {
+    await getDocs(collection(db, "themeConfig")).then((querySnapshot) => {
       const newData = querySnapshot.docs.map((doc) => ({
         ...doc.data(),
         id: doc.id,
       }));
       //@ts-ignore
       setConfig(newData[0].themeConfig);
-      console.log(newData);
     });
   };
+
   useEffect(() => {
-    fetchPost();
+    fetchConfig();
   }, []);
   return (
     <div className='mt-10 text-3xl mx-auto max-w-6xl'>
