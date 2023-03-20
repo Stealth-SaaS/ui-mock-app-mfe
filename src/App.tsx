@@ -24,9 +24,8 @@ const App = () => {
     fetchConfig();
   }, []);
   return (
-    <div className='mt-10 text-3xl mx-auto max-w-6xl'>
-      <h1 className='text-center'>Hello World</h1>
-      {config && <SignupComponent data={config} />}
+    <div className='mt-10 text-3xl mx-auto h-screen'>
+      {config && <SignupComponent className="h-full" data={config} />}
     </div>
   );
 };
