@@ -17,6 +17,7 @@ const App = () => {
       }));
       //@ts-ignore
       setConfig(newData[0].themeConfig);
+      console.log("NEW DATA", newData);
     });
   };
 
@@ -24,8 +25,13 @@ const App = () => {
     fetchConfig();
   }, []);
   return (
-    <div className='mt-10 text-3xl mx-auto h-screen'>
-      {config && <SignupComponent className="h-full" data={config} />}
+    <div className='mx-auto h-screen'>
+      {config && (
+        <SignupComponent
+          className='h-full'
+          data={config}
+        />
+      )}
     </div>
   );
 };
